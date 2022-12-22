@@ -1,5 +1,17 @@
+// Third Party Imports
 import React, {createContext} from 'react';
-import {AppBar, Container, Toolbar, Box, Menu, MenuItem, Typography} from '@mui/material';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {ThemeProvider, AppBar, Toolbar, Box, Button, Avatar, Typography} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+
+// First Party Imports
+import About from './Components/About';
+import Employment from './Components/Employment';
+import Projects from './Components/Projects';
+
+// Theme
+import Theme from './Themes/app_theme';
+
 
 interface GlobalContextInterface {
   pages: Array<string>
@@ -8,7 +20,7 @@ interface GlobalContextInterface {
 const GlobalContext = createContext<GlobalContextInterface | null>(null);
 
 const globalContextData: GlobalContextInterface = {
-  pages: ["About Me", "Employment"]
+  pages: ["About", "Employment", "Projects"]
 }
 
 
@@ -19,56 +31,42 @@ const globalContextData: GlobalContextInterface = {
 function App() {
 
 
-  const [anchorNav, setAnchorNav] = React.useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorNav(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorNav(null);
-  };
-
-
 
   return (
     <GlobalContext.Provider value={globalContextData}>
-      
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+      <ThemeProvider theme={Theme}>
 
-              <Menu id="menu-appbar"
-              anchorEl={anchorNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}>
-                {/* {globalContextData.pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))} */}
-              </Menu>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<About />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Employment" element={<Employment />} />
+            <Route path="/Projects" element={<Projects />} />
+          </Routes>
+        </BrowserRouter>
 
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
 
+
+
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="static">
+            <Toolbar>
+              <Box sx={{ flexGrow: 1 }}>
+                <Avatar>BD</Avatar>
+                {/* <Typography>
+                  Brehnden Daly
+                </Typography> */}
+              </Box>
+              
+              {globalContextData.pages.map( (page) => (
+                <Button color="inherit" href={"/" + page}>{page}</Button>
+              ) )}
+
+            </Toolbar>
+          </AppBar>
+        </Box>
+
+      </ThemeProvider>
     </GlobalContext.Provider>
   );
 }
