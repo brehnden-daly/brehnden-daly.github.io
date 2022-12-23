@@ -1,15 +1,36 @@
+// Third party imports
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {HashRouter, Routes, Route} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// First Party Imports
+import About from './Components/About';
+import Employment from './Components/Employment';
+import Projects from './Components/Projects';
+
+
+
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <App />
+    <HashRouter basename='/'>
+      <Routes>
+
+        <Route path="/About" element={<About />} />
+        <Route path="/Employment" element={<Employment />} />
+        <Route path="/Projects" element={<Projects />} />
+
+      </Routes>
+    </HashRouter>
   </React.StrictMode>
 );
 
