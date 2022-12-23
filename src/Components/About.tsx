@@ -9,9 +9,7 @@ function About( data: object ) {
 
 
     return (
-        <div id="About">
-
-        </div>
+        <div id="About"></div>
     );
 
 }

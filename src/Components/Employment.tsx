@@ -9,9 +9,7 @@ function Employment( data: object ) {
 
 
     return (
-        <div id="Employment">
-
-        </div>
+        <div id="Employment"></div>
     );
 
 }

@@ -5,18 +5,16 @@ import React, {createContext} from 'react';
  * 
  * @param data dynamic data to display in the About page
  */
-function Employment( data: object ) {
+function Projects( data: object ) {
 
 
     return (
-        <div id="Employment">
-
-        </div>
+        <div id="Projects"></div>
     );
 
 }
 
-export default Employment;
+export default Projects;
 
 
 
