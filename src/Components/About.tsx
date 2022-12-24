@@ -1,10 +1,13 @@
 // Third Party Imports
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Box, Grid, Paper } from '@mui/material';
 
 // First Party Imports
 import AboutItem from './About/AboutItem';
+
+// Assets
+import hiking from './About/hiking.jpg';
 
 
 
@@ -17,9 +20,18 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.secondary,
-    height: vh-75,
-    width: "98%",
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: 500,
+    display: "flex"
 }));
+
+
+interface Data {
+    image: string,
+    header: string,
+    bullets: Array<string>
+}
 
 
 /**
@@ -28,35 +40,39 @@ const Item = styled(Paper)(({ theme }) => ({
  */
 function About( data: object ) {
 
+    const [aboutItemData, setAboutItemData] = useState<Array<Data>>( [
+        {image: hiking,
+        header: "Passionate Engineer",
+        bullets: [
+            "Bachelor's degree in Aerospace Engineering with a minor in Mathematics",
+            "Software Engineer at Northrop Grumman currently developing React.js web applications to support closed environment system testing",
+            "Professional experience in various areas of engineering including software, reliability, systems, and cyber security",
+            "Professional experience with programming languages such as Python, JavaScript, TypeScript, HTML, CSS, C#, and Visual Basic. Collegiate experience with C and C++",
+            "Professional experience with Microsoft Windows, Red Hat Enterprise Linux (CLI), Ubuntu Linux, Raspbian Linux, and macOS",
+            "Experience programming microprocessors in C and Python for sensor data input and actuator control output. Experience developing and running scripts on Nvidia Cuda GPUs for acceleration purposes",
+            "Utility patent owner for a system to augment drone capabilities",
+            "Certified in general cyber security skills by CompTIA's Security+ SY0-601 course"
+        ]}
+    ] );
 
 
     return (
-        <div id='About' style={{position: "relative", top: "50px", width: "100%", padding:0}}>
-            <div style={{ marginLeft: "auto", 
-            marginRight: "auto", 
-            marginTop: 15, 
-            marginBottom: 15, 
-            width: "90%", 
-            height: "80%" }}>
+        <div id='About' style={{position: "relative", marginTop: "75px", marginBottom: "25px", width: "100%", padding:0}}>
 
-                <Item elevation={8}>
-                    <AboutItem />
-                </Item>
-
-            </div>
-
-            <div style={{ marginLeft: "auto", 
-            marginRight: "auto", 
-            marginTop: 15, 
-            marginBottom: 15, 
-            width: "90%", 
-            height: "80%" }}>
-
-                <Item elevation={8}>
-
-                </Item>
-                
-            </div>
+            {aboutItemData.map( (item) => (
+                <div style={{ marginLeft: 'auto',
+                marginRight: 'auto',
+                marginTop: 15,
+                marginBottom: 15,
+                width: "90%", 
+                height: "80%" }}>
+    
+                    <Item elevation={8}>
+                        <AboutItem {...item}></AboutItem>
+                    </Item>
+                    
+                </div>
+            ) )}
                 
         </div>
     );

@@ -25,6 +25,7 @@ root.render(
     <HashRouter basename='/'>
       <Routes>
 
+      <Route path="/" element={<About />} />
         <Route path="/About" element={<About />} />
         <Route path="/Employment" element={<Employment />} />
         <Route path="/Projects" element={<Projects />} />
