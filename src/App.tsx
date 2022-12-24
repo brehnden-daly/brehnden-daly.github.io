@@ -31,8 +31,8 @@ function App() {
       <ThemeProvider theme={Theme}>
 
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-            <Toolbar>
+          <AppBar position="fixed">
+            <Toolbar variant="dense">
               <Box sx={{ flexGrow: 1 }}>
                 <Avatar>BD</Avatar>
               </Box>
