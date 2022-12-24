@@ -6,6 +6,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 // Theme
 import Theme from './Themes/app_theme';
 
+// Assets
+import avatar from './Components/About/personal_0.jpg'
+
 
 interface GlobalContextInterface {
   pages: Array<string>
@@ -31,10 +34,10 @@ function App() {
       <ThemeProvider theme={Theme}>
 
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-            <Toolbar>
+          <AppBar position="fixed">
+            <Toolbar variant="dense">
               <Box sx={{ flexGrow: 1 }}>
-                <Avatar>BD</Avatar>
+                <Avatar alt="Brehnden" src={avatar}></Avatar>
               </Box>
 
               {globalContextData.pages.map( (page) => (
