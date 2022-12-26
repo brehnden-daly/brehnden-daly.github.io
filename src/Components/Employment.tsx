@@ -1,7 +1,7 @@
 // Third Party Imports
 import React, {useState} from 'react';
 import { styled } from '@mui/material/styles';
-import { Modal, Paper, Typography, Stack } from '@mui/material';
+import { Modal, Paper, Typography, Stack, Button } from '@mui/material';
 
 // First Party Imports
 
@@ -17,10 +17,12 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     color: theme.palette.text.secondary,
+    borderRadius: 10,
     position: 'absolute',
     top: '50%',
     left: '50%',
-    width: '50%',
+    width: '75%',
+    maxHeight: '75%',
     transform: 'translate(-50%, -50%)'
 }));
 
@@ -71,15 +73,12 @@ function Employment( data: object ) {
 
     const [selected, setSelected] = useState(0);
     const [open, setOpen] = useState(false);
-    const handleOpen = () => {
-        setOpen(true);
-    };
     const handleClose = () => {
         setOpen(false);
     };
 
-    const divClicked = (e: React.MouseEvent<HTMLDivElement>) => {
-        const target = e.target as HTMLDivElement;
+    const nodeClicked = (e: React.MouseEvent<HTMLElement>) => {
+        const target = e.target as HTMLElement;
         if (target.id === "ucf") {
             setSelected(0);
             setOpen(true);
@@ -107,26 +106,25 @@ function Employment( data: object ) {
 
     return (
         <>
-            <div style={{position: "absolute", top: '30%', width: '100%'}}>
-                <img src={background} style={{position: "relative", width: "100%"}}></img>
-                <div style={{display: "table", position: "absolute", top:0, height: "100%", width: "100%"}}>
-                    <div id="ucf" onMouseEnter={divEntering} onMouseLeave={divExiting} onClick={divClicked} style={{display: "table-cell", height: "100%", width: "30%"}}></div>
-                    <div id="mps" onMouseEnter={divEntering} onMouseLeave={divExiting} onClick={divClicked} style={{display: "table-cell", height: "100%", width: "30%"}}></div>
-                    <div id="ng" onMouseEnter={divEntering} onMouseLeave={divExiting} onClick={divClicked} style={{display: "table-cell", height: "100%", width: "30%"}}></div>
+            <div style={{position: "absolute", height:'100%', width: '100%'}}>
+                <img src={background} style={{position: "relative", top: "30%", width: "100%", zIndex:0}}></img>
+                <Button id="ucf" onClick={nodeClicked} sx={{position: "absolute", top: 0, left:0, height: "100%", width: "33%", zIndex:1}}></Button>
+                <Button id="mps" onClick={nodeClicked} sx={{position: "absolute", top: 0, left:'33%', height: "100%", width: "33%", zIndex:1}}></Button>
+                <Button id="ng" onClick={nodeClicked} sx={{position: "absolute", top: 0, left:'66%', height: "100%", width: "33%", zIndex:1}}></Button>
 
-                    <Modal open={open} onClose={handleClose}>
-                        <Item elevation={8}>
-                            <Typography variant='h6' sx={{textAlign: 'center', fontWeight: 'medium'}}>{employmentData[selected].employer}</Typography>
-                            <Typography variant='h5' sx={{textAlign: 'center', fontWeight: 'bold'}}>{employmentData[selected].job_title}</Typography>
 
-                            <Stack spacing={0.5} sx={{width: "100%", height: "100%"}}>
-                                {employmentData[selected].bullets.map( (bullet) => (
-                                    <Typography variant='body1' sx={{textAlign: 'left', fontWeight: 'light'}}>{"- " + bullet}</Typography>
-                                ) )}
-                            </Stack>
-                        </Item>
-                    </Modal>
-                </div>
+                <Modal open={open} onClose={handleClose}>
+                    <Item elevation={8}>
+                        <Typography variant='h6' sx={{textAlign: 'center', fontWeight: 'medium'}}>{employmentData[selected].employer}</Typography>
+                        <Typography variant='h5' sx={{textAlign: 'center', fontWeight: 'bold'}}>{employmentData[selected].job_title}</Typography>
+
+                        <Stack spacing={0.5} sx={{width: "100%", height: "100%"}}>
+                            {employmentData[selected].bullets.map( (bullet) => (
+                                <Typography variant='body1' sx={{textAlign: 'left', fontWeight: 'light'}}>{"- " + bullet}</Typography>
+                            ) )}
+                        </Stack>
+                    </Item>
+                </Modal>
             </div>
         </>
     );
