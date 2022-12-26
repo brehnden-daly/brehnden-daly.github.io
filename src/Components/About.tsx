@@ -1,34 +1,17 @@
 // Third Party Imports
-import React, { useState } from 'react';
-import { styled } from '@mui/material/styles';
-import { Box, Grid, Paper } from '@mui/material';
+import { useState } from 'react';
 
 // First Party Imports
+import Item from './About/CustomItem';
 import AboutItem from './About/AboutItem';
 
 // Assets
-import senior_design from './About/senior_design.jpg';
-import stackable_drones from './About/stackable_drones.jpg';
-import stackable_drones_dwg from './About/stackable_drones_dwg.jpg';
-import hiking from './About/hiking.jpg';
-import camping from './About/camping.jpg';
+import senior_design from './About/images/senior_design.jpg';
+import stackable_drones from './About/images/stackable_drones.jpg';
+import stackable_drones_dwg from './About/images/stackable_drones_dwg.jpg';
+import hiking from './About/images/hiking.jpg';
+import camping from './About/images/camping.jpg';
 
-
-
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: 500,
-    display: "flex"
-}));
 
 
 interface Data {
@@ -46,7 +29,7 @@ function About(  ) {
 
     const [aboutItemData, setAboutItemData] = useState<Array<Data>>( [
 
-        {images: [senior_design, stackable_drones_dwg, stackable_drones],
+        {images: [stackable_drones_dwg, stackable_drones, senior_design],
         header: "Passionate Engineer",
         bullets: [
             "Bachelor's degree in Aerospace Engineering from the University of Central Florida with a minor in Mathematics",
@@ -59,27 +42,27 @@ function About(  ) {
             "Certified in general cyber security skills by CompTIA's Security+ SY0-601 course"
         ]},
         {images: [  ],
-            header: "Short-Term Goals",
-            bullets: [
-                "Continue to work in environments that are challenging, encourage innovation, and facilitate learning",
-                "Begin my Master's Degree in data science/machine learning",
-                "Take control of and automate my investments"
+        header: "Short-Term Goals",
+        bullets: [
+            "Continue to work in environments that are challenging, encourage innovation, and facilitate learning",
+            "Begin my Master's Degree in data science/machine learning",
+            "Take control of and automate my investments"
         ]},
         {images: [  ],
-            header: "Long-Term Goals",
-            bullets: [
-                "Become an engineer-entrepreneur",
-                "Advance the merge of machine learning and engineering design",
-                "Build a cabin"
+        header: "Long-Term Goals",
+        bullets: [
+            "Become an engineer-entrepreneur",
+            "Advance the merge of machine learning and engineering design",
+            "Build a cabin"
         ]},
         {images: [hiking, camping],
-            header: "Hobbies",
-            bullets: [
-                "Backpacking",
-                "Rock Climbing",
-                "Snowboarding",
-                "Building PCs",
-                "Video Games"
+        header: "Hobbies",
+        bullets: [
+            "Backpacking",
+            "Rock Climbing",
+            "Snowboarding",
+            "Building PCs",
+            "Video Games"
         ]}
 
     ] );
@@ -96,7 +79,7 @@ function About(  ) {
                 width: "90%", 
                 height: "80%" }}>
     
-                    <Item elevation={8}>
+                    <Item elevation={7}>
                         <AboutItem {...item}></AboutItem>
                     </Item>
                     

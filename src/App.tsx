@@ -1,5 +1,5 @@
 // Third Party Imports
-import React, {createContext} from 'react';
+import {useState} from 'react';
 import {ThemeProvider, AppBar, Toolbar, Box, Button, Avatar, Typography} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -7,18 +7,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Theme from './Themes/app_theme';
 
 // Assets
-import avatar from './Components/About/personal_0.jpg'
+import avatar from './Components/About/images/personal_0.jpg'
 
-
-interface GlobalContextInterface {
-  pages: Array<string>
-}
-
-const GlobalContext = createContext<GlobalContextInterface | null>(null);
-
-const globalContextData: GlobalContextInterface = {
-  pages: ["About", "Employment", "Projects"]
-}
 
 
 /**
@@ -27,10 +17,10 @@ const globalContextData: GlobalContextInterface = {
  */
 function App() {
 
-
+  const [pages, setPages] = useState<Array<string>>(["About", "Employment", "Projects", "Contact"]);
 
   return (
-    <GlobalContext.Provider value={globalContextData}>
+    
       <ThemeProvider theme={Theme}>
 
         <Box sx={{ flexGrow: 1 }}>
@@ -40,7 +30,7 @@ function App() {
                 <Avatar alt="Brehnden" src={avatar}></Avatar>
               </Box>
 
-              {globalContextData.pages.map( (page) => (
+              {pages.map( (page) => (
                 <Button color="inherit" href={"/#/" + page}>{page}</Button>
               ) )}
 
@@ -49,7 +39,6 @@ function App() {
         </Box>
 
       </ThemeProvider>
-    </GlobalContext.Provider>
   );
 }
 
