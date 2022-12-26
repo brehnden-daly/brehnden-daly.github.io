@@ -79,7 +79,7 @@ function About(  ) {
                 width: "90%", 
                 height: "80%" }}>
     
-                    <Item elevation={8}>
+                    <Item elevation={7}>
                         <AboutItem {...item}></AboutItem>
                     </Item>
                     

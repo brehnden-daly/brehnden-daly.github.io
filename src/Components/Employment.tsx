@@ -104,7 +104,7 @@ function Employment( data: object ) {
 
 
                 <Modal open={open} onClose={handleClose}>
-                    <Item elevation={8}>
+                    <Item elevation={7}>
                         <Typography variant='h6' sx={{textAlign: 'center', fontWeight: 'medium'}}>{employmentData[selected].employer}</Typography>
                         <Typography variant='h5' sx={{textAlign: 'center', fontWeight: 'bold'}}>{employmentData[selected].job_title}</Typography>
 

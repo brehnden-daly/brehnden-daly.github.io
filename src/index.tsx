@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import About from './Components/About';
 import Employment from './Components/Employment';
 import Projects from './Components/Projects';
-
+import Contact from './Components/Contact';
 
 
 
@@ -28,6 +28,7 @@ root.render(
         <Route path="/About" element={<About />} />
         <Route path="/Employment" element={<Employment />} />
         <Route path="/Projects" element={<Projects />} />
+        <Route path="/Contact" element={<Contact />} />
 
       </Routes>
     </HashRouter>

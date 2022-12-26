@@ -17,7 +17,7 @@ import avatar from './Components/About/images/personal_0.jpg'
  */
 function App() {
 
-  const [pages, setPages] = useState<Array<string>>(["About", "Employment", "Projects"]);
+  const [pages, setPages] = useState<Array<string>>(["About", "Employment", "Projects", "Contact"]);
 
   return (
     
