@@ -1,7 +1,5 @@
 // Third Party Imports
-import React, { useState, useContext } from 'react';
-import { styled } from '@mui/material/styles';
-import { Box, Grid, Paper } from '@mui/material';
+import { useState } from 'react';
 
 // First Party Imports
 import Item from './About/CustomItem';
@@ -44,27 +42,27 @@ function About(  ) {
             "Certified in general cyber security skills by CompTIA's Security+ SY0-601 course"
         ]},
         {images: [  ],
-            header: "Short-Term Goals",
-            bullets: [
-                "Continue to work in environments that are challenging, encourage innovation, and facilitate learning",
-                "Begin my Master's Degree in data science/machine learning",
-                "Take control of and automate my investments"
+        header: "Short-Term Goals",
+        bullets: [
+            "Continue to work in environments that are challenging, encourage innovation, and facilitate learning",
+            "Begin my Master's Degree in data science/machine learning",
+            "Take control of and automate my investments"
         ]},
         {images: [  ],
-            header: "Long-Term Goals",
-            bullets: [
-                "Become an engineer-entrepreneur",
-                "Advance the merge of machine learning and engineering design",
-                "Build a cabin"
+        header: "Long-Term Goals",
+        bullets: [
+            "Become an engineer-entrepreneur",
+            "Advance the merge of machine learning and engineering design",
+            "Build a cabin"
         ]},
         {images: [hiking, camping],
-            header: "Hobbies",
-            bullets: [
-                "Backpacking",
-                "Rock Climbing",
-                "Snowboarding",
-                "Building PCs",
-                "Video Games"
+        header: "Hobbies",
+        bullets: [
+            "Backpacking",
+            "Rock Climbing",
+            "Snowboarding",
+            "Building PCs",
+            "Video Games"
         ]}
 
     ] );

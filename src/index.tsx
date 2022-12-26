@@ -1,5 +1,5 @@
 // Third party imports
-import React, { createContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {HashRouter, Routes, Route} from 'react-router-dom';
 import './index.css';

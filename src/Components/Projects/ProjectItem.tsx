@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { Typography, Stack, IconButton } from '@mui/material';
+import { Typography, Stack, IconButton, Link } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
 interface Data {
     images: Array<string>,
     header: string,
-    bullets: Array<string>
+    bullets: Array<string>,
+    link: string
 }
 
 
-function AboutItem( itemData: Data ) {
+
+function ProjectItem( itemData: Data ) {
 
     const [selectedImage, setSelectedImage] = useState(0);
 
@@ -47,6 +49,7 @@ function AboutItem( itemData: Data ) {
                 {itemData.bullets.map( (bullet) => (
                     <Typography variant="body2" sx={{fontWeight: "light"}}> {"- " + bullet} </Typography>
                 ) )}
+                <Link align="center" href={itemData.link} underline="none">{itemData.link}</Link>
             </Stack>
         );
     } else {
@@ -57,6 +60,7 @@ function AboutItem( itemData: Data ) {
                 {itemData.bullets.map( (bullet) => (
                     <Typography variant="body2" sx={{fontWeight: "light"}}> {"- " + bullet} </Typography>
                 ) )}
+                <Link align="center" href={itemData.link} underline="none">{itemData.link}</Link>
             </Stack>
         );
     }
@@ -64,4 +68,4 @@ function AboutItem( itemData: Data ) {
 
 }
 
-export default AboutItem;
+export default ProjectItem;

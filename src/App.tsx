@@ -1,5 +1,5 @@
 // Third Party Imports
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {ThemeProvider, AppBar, Toolbar, Box, Button, Avatar, Typography} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 

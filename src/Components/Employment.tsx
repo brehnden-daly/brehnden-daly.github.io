@@ -1,7 +1,6 @@
 // Third Party Imports
 import React, {useState} from 'react';
-import { styled } from '@mui/material/styles';
-import { Modal, Paper, Typography, Stack, Button } from '@mui/material';
+import { Modal, Typography, Stack, Button } from '@mui/material';
 
 // First Party Imports
 import Item from './Employment/ModalItem';
