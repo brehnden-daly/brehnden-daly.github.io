@@ -47,7 +47,7 @@ function About(  ) {
 
     const [aboutItemData, setAboutItemData] = useState<Array<Data>>( [
 
-        {images: [senior_design, stackable_drones_dwg, stackable_drones],
+        {images: [stackable_drones_dwg, senior_design, stackable_drones],
         header: "Passionate Engineer",
         bullets: [
             "Bachelor's degree in Aerospace Engineering from the University of Central Florida with a minor in Mathematics",
