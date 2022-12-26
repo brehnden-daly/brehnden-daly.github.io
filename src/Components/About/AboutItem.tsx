@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import { Box, Grid, Paper, Typography, Stack } from '@mui/material';
 
 interface Data {
-    image: string,
+    images: Array<string>,
     header: string,
     bullets: Array<string>
 }
@@ -11,16 +11,17 @@ interface Data {
 
 function AboutItem( itemData: Data ) {
 
-    console.log(itemData)
-
     return (
 
         <Stack spacing={0.5} sx={{width: "100%", height: "100%"}}>
-            <Typography variant="h5" align="center"> {itemData.header} </Typography>
-            <img src={itemData.image}></img>
+            <Typography variant="h6" align="center" sx={{fontWeight: "bold"}}> {itemData.header} </Typography>
+
+            {itemData.images.map( (image) => (
+                <img src={image}></img>
+            ) )}
 
             {itemData.bullets.map( (bullet) => (
-                <Typography variant="body2"> {"- " + bullet} </Typography>
+                <Typography variant="body2" sx={{fontWeight: "light"}}> {"- " + bullet} </Typography>
             ) )}
         </Stack>
 

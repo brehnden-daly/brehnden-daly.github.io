@@ -35,7 +35,7 @@ function App() {
 
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="fixed">
-            <Toolbar variant="dense">
+            <Toolbar variant="dense" sx={{backgroundColor: "#4D79CE"}}>
               <Box sx={{ flexGrow: 1 }}>
                 <Avatar alt="Brehnden" src={avatar}></Avatar>
               </Box>
