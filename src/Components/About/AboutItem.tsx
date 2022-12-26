@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { Typography, Stack, Button, IconButton } from '@mui/material';
+import { Typography, Stack, IconButton } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
 interface Data {
@@ -30,29 +30,37 @@ function AboutItem( itemData: Data ) {
         }
     }
 
-    return (
 
-        <Stack spacing={0.5} sx={{width: "100%", height: "100%"}}>
-            <Typography variant="h6" align="center" sx={{fontWeight: "bold"}}> {itemData.header} </Typography>
+    if (itemData.images.length !== 0) {
+        return (
+            <Stack spacing={0.5} sx={{width: "100%", height: "100%"}}>
+                <Typography variant="h6" align="center" sx={{fontWeight: "bold"}}> {itemData.header} </Typography>
+                <div style={{position: 'relative'}}>
+                    <img src={itemData.images[selectedImage]} style={{width: '100%'}}></img>
+                    <IconButton onClick={backImage} sx={{position: 'absolute', top: 0, height: '100%', left: 0}}>
+                        <ArrowBackIos></ArrowBackIos>
+                    </IconButton>
+                    <IconButton onClick={iterImage} sx={{position: 'absolute', top: 0, height: '100%', right: 0}}>
+                        <ArrowForwardIos></ArrowForwardIos>
+                    </IconButton>
+                </div>
 
-            {/* <img src={itemData.images[selectedImage]} onClick={iterImage}></img> */}
+                {itemData.bullets.map( (bullet) => (
+                    <Typography variant="body2" sx={{fontWeight: "light"}}> {"- " + bullet} </Typography>
+                ) )}
+            </Stack>
+        );
+    } else {
+        return (
+            <Stack spacing={0.5} sx={{width: "100%", height: "100%"}}>
+                <Typography variant="h6" align="center" sx={{fontWeight: "bold"}}> {itemData.header} </Typography>
 
-            <div style={{position: 'relative'}}>
-                <img src={itemData.images[selectedImage]} style={{width: '100%'}}></img>
-                <IconButton onClick={backImage} sx={{position: 'absolute', top: 0, height: '100%', left: 0}}>
-                    <ArrowBackIos></ArrowBackIos>
-                </IconButton>
-                <IconButton onClick={iterImage} sx={{position: 'absolute', top: 0, height: '100%', right: 0}}>
-                    <ArrowForwardIos></ArrowForwardIos>
-                </IconButton>
-            </div>
-
-            {itemData.bullets.map( (bullet) => (
-                <Typography variant="body2" sx={{fontWeight: "light"}}> {"- " + bullet} </Typography>
-            ) )}
-        </Stack>
-
-    );
+                {itemData.bullets.map( (bullet) => (
+                    <Typography variant="body2" sx={{fontWeight: "light"}}> {"- " + bullet} </Typography>
+                ) )}
+            </Stack>
+        );
+    }
 
 
 }

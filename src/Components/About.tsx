@@ -1,35 +1,19 @@
 // Third Party Imports
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { styled } from '@mui/material/styles';
 import { Box, Grid, Paper } from '@mui/material';
 
 // First Party Imports
+import Item from './About/CustomItem';
 import AboutItem from './About/AboutItem';
 
 // Assets
-import senior_design from './About/senior_design.jpg';
-import stackable_drones from './About/stackable_drones.jpg';
-import stackable_drones_dwg from './About/stackable_drones_dwg.jpg';
-import hiking from './About/hiking.jpg';
-import camping from './About/camping.jpg';
+import senior_design from './About/images/senior_design.jpg';
+import stackable_drones from './About/images/stackable_drones.jpg';
+import stackable_drones_dwg from './About/images/stackable_drones_dwg.jpg';
+import hiking from './About/images/hiking.jpg';
+import camping from './About/images/camping.jpg';
 
-
-
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    borderRadius: 10,
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: 500,
-    display: "flex"
-}));
 
 
 interface Data {
@@ -47,7 +31,7 @@ function About(  ) {
 
     const [aboutItemData, setAboutItemData] = useState<Array<Data>>( [
 
-        {images: [stackable_drones_dwg, senior_design, stackable_drones],
+        {images: [stackable_drones_dwg, stackable_drones, senior_design],
         header: "Passionate Engineer",
         bullets: [
             "Bachelor's degree in Aerospace Engineering from the University of Central Florida with a minor in Mathematics",

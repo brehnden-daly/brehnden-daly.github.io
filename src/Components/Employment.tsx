@@ -4,27 +4,18 @@ import { styled } from '@mui/material/styles';
 import { Modal, Paper, Typography, Stack, Button } from '@mui/material';
 
 // First Party Imports
-
+import Item from './Employment/ModalItem';
 
 // Assets
-import background from './Employment/Employment_1.svg';
+import background_desktop from './Employment/Employment_Desktop.jpg';
+import background_mobile from './Employment/Employment_Mobile.jpg';
 
 
-
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    color: theme.palette.text.secondary,
-    borderRadius: 10,
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    width: '75%',
-    maxHeight: '75%',
-    transform: 'translate(-50%, -50%)'
-}));
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+var background = background_desktop;
+if (vw < 800) {
+    background = background_mobile;
+}
 
 
 interface EmpData {
@@ -46,7 +37,7 @@ function Employment( data: object ) {
             {job_title: "Supplemental Instructor",
             employer: "UCF Student Academic Resource Center",
             bullets: [
-                "Supplemental instructor for an introductory circuit theory course",
+                "Supplemental instructor for an introductory circuit theory course at the University of Central Florida",
                 "Assisted students in learning concepts such as Kirchoff’s and Ohm’s laws, DC/AC RL, RC, and RLC circuit analysis methods, etc.",
                 "Learned how to lead meetings, simplify ideas, and stay organized"
             ]},
@@ -56,7 +47,7 @@ function Employment( data: object ) {
                 "Furthered development and improvement of both steam turbine blade path optimization and turbine prognostic software",
                 "This software provided engineers an interface to calculate optimal cross-sectional blade positioning for high, intermediate, and low pressure turbines and analyzed sensor data to provide prognostic reports",
                 "Learned agile software development/improvement processes",
-                "Learned to develop an organized bug reporting/tracking system",
+                "Developed an organized bug reporting/tracking system",
                 "Learned how to quantify software improvements"
             ]},
             {job_title: "Software Engineer",
@@ -66,7 +57,7 @@ function Employment( data: object ) {
                 "This software allows engineers to build then provision system-level configuations consisting of various hardware, operating systems, and software",
                 "Developing python and shell scripts to automate the collection and analysis of system-level test data",
                 "Learning efficient agile software development in secure air-gapped networks/environments",
-                "Learning how to efficiently provision large lab environments consisting of a multitude of bare-metal servers"
+                "Learning how to efficiently provision large lab environments consisting of multiple bare-metal servers"
             ]}
         ]
     )
@@ -120,7 +111,7 @@ function Employment( data: object ) {
 
                         <Stack spacing={0.5} sx={{width: "100%", height: "100%"}}>
                             {employmentData[selected].bullets.map( (bullet) => (
-                                <Typography variant='body1' sx={{textAlign: 'left', fontWeight: 'light'}}>{"- " + bullet}</Typography>
+                                <Typography variant='body2' sx={{textAlign: 'left', fontWeight: 'light'}}>{"- " + bullet}</Typography>
                             ) )}
                         </Stack>
                     </Item>
