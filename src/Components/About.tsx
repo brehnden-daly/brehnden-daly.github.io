@@ -35,7 +35,7 @@ function About(  ) {
             "Bachelor's degree in Aerospace Engineering from the University of Central Florida with a minor in Mathematics",
             "Software Engineer at Northrop Grumman currently developing React.js web applications to support closed environment system testing",
             "Professional experience in various areas of engineering including software, reliability, systems, and cyber security",
-            "Professional experience with Python, JavaScript, TypeScript, HTML, CSS, C#, and Visual Basic. Collegiate experience with C and C++",
+            "Professional experience with Python, JavaScript, TypeScript, SQL (SQLite, MySQL), HTML, CSS, C#, and Visual Basic. Collegiate experience with C and C++",
             "Professional experience with Microsoft Windows, Red Hat Enterprise Linux (CLI), Ubuntu Linux, Raspbian Linux, and macOS",
             "Experience programming microprocessors in C and Python for sensor data input and actuator control output. Experience developing and running scripts on Nvidia Cuda GPUs for computational acceleration purposes",
             "Utility patent owner for a system to augment drone capabilities",
@@ -45,7 +45,7 @@ function About(  ) {
         header: "Short-Term Goals",
         bullets: [
             "Continue to work in environments that are challenging, encourage innovation, and facilitate learning",
-            "Begin my Master's Degree in data science/machine learning",
+            "Begin a Master's Degree in data science/machine learning",
             "Take control of and automate my investments"
         ]},
         {images: [  ],
