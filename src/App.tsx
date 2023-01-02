@@ -11,6 +11,14 @@ import avatar from './Components/About/images/personal_0.jpg'
 
 
 
+
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+var barFontSize = 14;
+if (vw < 800) {
+  barFontSize = 11;
+}
+
+
 /**
  * 
  * @returns The base application consisting of the header and other React Components
@@ -31,7 +39,7 @@ function App() {
               </Box>
 
               {pages.map( (page) => (
-                <Button color="inherit" href={"/#/" + page}>{page}</Button>
+                <Button color="inherit" href={"/#/" + page} sx={{fontSize: barFontSize}}>{page}</Button>
               ) )}
 
             </Toolbar>
